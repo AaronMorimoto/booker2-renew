@@ -18,10 +18,13 @@
   </tr>
   <tr>
     <th>
-      <% if current_user.following?(user) %>
-        <a class="btn btn-sm btn-success" data-method="delete" href="<%= user_relationships_path(user.id) %>">フォロー外す</a>
+      <% if user == current_user %>
       <% else %>
-        <a class="btn btn-sm btn-success" data-method="post" href="<%= user_relationships_path(user.id) %>">フォローする</a>
+        <% if current_user.following?(user) %>
+          <a class="btn btn-sm btn-success" data-method="delete" href="<%= user_relationships_path(user.id) %>">フォロー外す</a>
+        <% else %>
+          <a class="btn btn-sm btn-success" data-method="post" href="<%= user_relationships_path(user.id) %>">フォローする</a>
+        <% end %>
       <% end %>
     </th>
   </tr>
