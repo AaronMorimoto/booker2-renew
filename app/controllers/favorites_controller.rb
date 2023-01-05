@@ -4,12 +4,14 @@ class FavoritesController < ApplicationController
     @book_favorite = Favorite.new(user_id: current_user.id, book_id: params[:book_id])
     @book_favorite.save
     #redirect_to books_path(params[:book_id])
+    render 'create'
   end
   
   def destroy
     @book_favorite = Favorite.find_by(user_id: current_user.id, book_id: params[:book_id])
     @book_favorite.destroy
     #redirect_to books_path(params[:book_id])
+    render 'destroy'
   end
   
 end
