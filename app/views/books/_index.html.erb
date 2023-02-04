@@ -16,22 +16,11 @@
         </td>
         <td><%= link_to book.title,book, class: "book_#{book.id}" %></td>
         <td><%= book.body %></td>
-        <td>
-          <!--星評価-->
-            <div id="score_<%= book.id %>"></div>
-            <script>
-              $('#score_<%= book.id %>').raty({
-                size     : 36,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-              });
-            </script>  
-          <!--/星評価-->
-        </td>
         <td class=<%= "favorite-" + book.id.to_s %> >
             <%= render "favorites/btn", book: book %>
         </td>
         <td><%= render "book_comments/counter", book: book %></td>
+        <td><%= render "books/static_rate", book: book %></td>
       </tr>
     <% end %>
   </tbody>
