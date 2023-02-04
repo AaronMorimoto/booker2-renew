@@ -12,6 +12,13 @@ import "popper.js"
 import "bootstrap"
 import '@fortawesome/fontawesome-free/js/all';
 import "../stylesheets/application" 
+//追加されたレビュー機能のjavascriptファイルraty.jsを読み込む為の記述
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}
 
 Rails.start()
 Turbolinks.start()
